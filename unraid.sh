@@ -6,7 +6,7 @@
 
 # Copy files to appdata
 if [ ! -e /config/converted_wavs ] ; then
-rsync -avh --exclude-from '/beep/exclude-list.txt' /beep/ /config/ && chmod 777 -R /config 
+rsync -avh --exclude-from '/beep/exclude-list.txt' /beep/ /config/ && chmod 777 -R /config/ 
 fi
 
 # change into convert directory
@@ -22,7 +22,7 @@ checkrun() {
 monowav
 mode="Default convert from folder mode"
 
-# play sample Warhawk
+# play sample Indiana_Jones
 elif [ "$custom" == "Indiana_Jones" ] ; then	
 name="/config/examples/Indiana_Jones.wav"
 mode="Sample Indiana Jones Mode"
