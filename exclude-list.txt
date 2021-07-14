@@ -7,4 +7,6 @@ beep_music
 beep_icon.png
 .DS_Store
 .gitignore
+README.md
+credits
 
