@@ -8,6 +8,7 @@
 if [ ! -e /config/converted_wavs ] ; then
 rsync -avh --exclude-from '/beep/exclude-list.txt' /beep/ /config/ && chmod 777 -R /config 
 fi
+
 # change into convert directory
 cd /config/file_to_convert/ || exit
 
@@ -21,14 +22,13 @@ checkrun() {
 monowav
 mode="Default convert from folder mode"
 
-
 # play sample Warhawk
-elif [ "$custom" == "Indiana Jones" ] ; then	
-name="/config/examples/Indiana Jones.wav"
+elif [ "$custom" == "Indiana_Jones" ] ; then	
+name="/config/examples/Indiana_Jones.wav"
 mode="Sample Indiana Jones Mode"
 
 # play sample monkey island
-elif [ "$custom" == "Monkey Island" ] ; then	
+elif [ "$custom" == "Monkey_Island" ] ; then	
 name="/config/examples/Monkey_Island.wav"
 mode="Sample Monkey Island beep tune mode"
 
@@ -137,13 +137,5 @@ fi
 checkrun
 convert
 clean
-
-
-
-
- python /config/wavtobeep.py  --verbose /config/examples/Monkey_Island.wav
-
-
-
 
 exit
