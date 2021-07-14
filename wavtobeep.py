@@ -78,14 +78,8 @@ for msec, freq in freql:
    com = com + '-l {0} -f {1} -n '.format(msec,freq)
 com = com[:-4]
 if args.verbose:
+    print('#!/bin/bash')
+    print('# $filenamenoext converted to beep by Unraid Beep Music')
     print(com)
 if not args.silent:
     os.system(com)
-
-#Arduino version
-com = ''
-for msec, freq in freql:
-    com += 'tone(4, {0}, {1});\ndelay({2});\n'.format(freq, msec, msec)
-if args.verbose:
-    print('Arduino equivalent order:')
-    print(com)

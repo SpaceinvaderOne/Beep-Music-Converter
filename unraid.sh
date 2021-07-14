@@ -81,8 +81,7 @@ convertnoisy() {
 		
 # Check wav file exists then convert it to beep and play beep file
     if [ -e "$name" ] ; then
-echo "#!/bin/bash" > /config/converted_wavs/"$filenamenoext".sh
-echo "# $filenamenoext converted to beep by Unraid Beep Music" > /config/converted_wavs/"$filenamenoext".sh
+export $filenamenoext
 nohup python /beep/wavtobeep.py -w "$time" --verbose "$name" > /config/converted_wavs/"$filenamenoext".sh
 else
 echo "Nothing here to convert. Place a wav or mp3 in the folder file_to_convert in the appdata folder"
@@ -94,8 +93,7 @@ convertsilent() {
 		
 # Check wav file exists then convert it to beep
     if [ -e "$name" ] ; then
-		echo "#!/bin/bash" > /config/converted_wavs/"$filenamenoext".sh
-		echo "# $filenamenoext converted to beep by Unraid Beep Music" > /config/converted_wavs/"$filenamenoext".sh
+export $filenamenoext
 nohup python /beep/wavtobeep.py -w "$time" --verbose --silent "$name" > /config/converted_wavs/"$filenamenoext".sh
 else
 echo "Nothing here to convert. Place a wav or mp3 in the folder file_to_convert in the appdata folder"
