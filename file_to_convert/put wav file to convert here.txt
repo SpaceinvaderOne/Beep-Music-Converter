@@ -1,0 +1,3 @@
+Put wav file to convert here. After conversion then wav file is moved to converted folder.
+
+Make sure to only put one wav file here at a time as only one will be processed.
