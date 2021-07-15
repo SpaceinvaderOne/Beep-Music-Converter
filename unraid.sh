@@ -43,8 +43,8 @@ monowav() {
 # Check if file is wav file	(not using for loop so fails if more than one file present)
     if [ -e *.wav ] ; then
 # get filename of wav file
-	filename=$(ls -r *.wav | head -n 1)
-	export filenamenoext=$(echo "$filename" | cut -f 1 -d '.')
+	filename=$(ls -r *.wav | head -n 1) && echo $filename
+	export filenamenoext=$(echo "$filename" | cut -f 1 -d '.') && echo $filenamenoext
 # convert wav to mono wav file
 echo "File is an wav. I will convert it to a 16bit 44100 wav file"
 	sox -G /config/file_to_convert/"$filename" -b 16 /config/file_to_convert/"$filenamenoext"_tmp.wav rate -v -s -L -a 44100 dither -a -s
@@ -59,8 +59,8 @@ echo "File is an wav. I will convert it to a 16bit 44100 wav file"
 
 elif [ -e *.mp3 ] ; then	
 # get filename of mp3 file
-	filename=$(ls -r *.mp3 | head -n 1)
-	export filenamenoext=$(echo "$filename" | cut -f 1 -d '.')
+	filename=$(ls -r *.mp3 | head -n 1) && echo $filename
+	export filenamenoext=$(echo "$filename" | cut -f 1 -d '.') && echo $filenamenoext
 # convert mp3 to mono wav file
 	echo "file is an mp3. I will convert it to a 16bit 44100 wav file"
 	sox -G /config/file_to_convert/"$filename" -b 16 /config/file_to_convert/"$filenamenoext"_tmp.wav rate -v -s -L -a 44100 dither -a -s
