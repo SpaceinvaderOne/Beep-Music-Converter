@@ -1,5 +1,5 @@
 unraid.sh
-Wavtobeep.py
+wavtobeep.py
 Dockerfile
 exclude-list.txt
 .git

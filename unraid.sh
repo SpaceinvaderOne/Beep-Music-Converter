@@ -44,7 +44,7 @@ monowav() {
     if [ -e *.wav ] ; then
 # get filename of wav file
 	filename=$(ls -r *.wav | head -n 1)
-	filenamenoext=$(echo "$filename" | cut -f 1 -d '.')
+	export filenamenoext=$(echo "$filename" | cut -f 1 -d '.')
 # convert wav to mono wav file
 echo "File is an wav. I will convert it to a 16bit 44100 wav file"
 	sox -G /config/file_to_convert/"$filename" -b 16 /config/file_to_convert/"$filenamenoext"_tmp.wav rate -v -s -L -a 44100 dither -a -s
@@ -60,7 +60,7 @@ echo "File is an wav. I will convert it to a 16bit 44100 wav file"
 elif [ -e *.mp3 ] ; then	
 # get filename of mp3 file
 	filename=$(ls -r *.mp3 | head -n 1)
-	filenamenoext=$(echo "$filename" | cut -f 1 -d '.')
+	export filenamenoext=$(echo "$filename" | cut -f 1 -d '.')
 # convert mp3 to mono wav file
 	echo "file is an mp3. I will convert it to a 16bit 44100 wav file"
 	sox -G /config/file_to_convert/"$filename" -b 16 /config/file_to_convert/"$filenamenoext"_tmp.wav rate -v -s -L -a 44100 dither -a -s
@@ -81,7 +81,6 @@ convertnoisy() {
 		
 # Check wav file exists then convert it to beep and play beep file
     if [ -e "$name" ] ; then
-export $filenamenoext
 nohup python /beep/wavtobeep.py -w "$time" --verbose "$name" > /config/converted_wavs/"$filenamenoext".sh
 else
 echo "Nothing here to convert. Place a wav or mp3 in the folder file_to_convert in the appdata folder"
@@ -93,7 +92,6 @@ convertsilent() {
 		
 # Check wav file exists then convert it to beep
     if [ -e "$name" ] ; then
-export $filenamenoext
 nohup python /beep/wavtobeep.py -w "$time" --verbose --silent "$name" > /config/converted_wavs/"$filenamenoext".sh
 else
 echo "Nothing here to convert. Place a wav or mp3 in the folder file_to_convert in the appdata folder"
