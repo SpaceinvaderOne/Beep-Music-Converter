@@ -78,8 +78,10 @@ for msec, freq in freql:
    com = com + '-l {0} -f {1} -n '.format(msec,freq)
 com = com[:-4]
 if args.verbose:
+    # add header for user script
     print('#!/bin/bash')
     print('# $filenamenoext converted to beep by Unraid Beep Music')
+    # print beep codes
     print(com)
 if not args.silent:
     os.system(com)
