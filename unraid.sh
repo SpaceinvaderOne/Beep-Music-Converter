@@ -47,7 +47,7 @@ monowav() {
 	export filenamenoext=$(echo "$filename" | cut -f 1 -d '.') && echo $filenamenoext
 # convert wav to mono wav file
 echo "File is an wav. I will convert it to a 16bit 44100 wav file"
-	sox -G /config/file_to_convert/"$filename" -b 16 /config/file_to_convert/"$filenamenoext"_tmp.wav rate -v -s -L -a 44100 dither -a -s
+	sox -G /config/file_to_convert/"$filename" -r 16000 -c 1 -b 16 /config/file_to_convert/"$filenamenoext"_tmp.wav 
 # remove original wav and rename temp wav
 	rm /config/file_to_convert/"$filename"
 	mv /config/file_to_convert/"$filenamenoext"_tmp.wav /config/file_to_convert/"$filename"
@@ -63,7 +63,7 @@ elif [ -e *.mp3 ] ; then
 	export filenamenoext=$(echo "$filename" | cut -f 1 -d '.') && echo $filenamenoext
 # convert mp3 to mono wav file
 	echo "file is an mp3. I will convert it to a 16bit 44100 wav file"
-	sox -G /config/file_to_convert/"$filename" -b 16 /config/file_to_convert/"$filenamenoext"_tmp.wav rate -v -s -L -a 44100 dither -a -s
+	sox -G /config/file_to_convert/"$filename" -r 16000 -c 1 -b 16 /config/file_to_convert/"$filenamenoext"_tmp.wav 
 # remove original mp3 and rename temp wav
 	rm /config/file_to_convert/"$filename"
 	mv /config/file_to_convert/"$filenamenoext"_tmp.wav /config/file_to_convert/"$filename"
