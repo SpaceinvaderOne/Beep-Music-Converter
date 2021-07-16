@@ -80,7 +80,7 @@ com = com[:-4]
 if args.verbose:
     # add header for user script
     print('#!/bin/bash')
-    print('# $filenamenoext converted to beep by Unraid Beep Music')
+    print('# Converted to beep by Unraid Beep Music')
     # print beep codes
     print(com)
 if not args.silent:
