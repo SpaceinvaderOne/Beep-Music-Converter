@@ -13,6 +13,7 @@ import os
 from scipy.io import wavfile
 import numpy as np
 import argparse
+from datetime import date
 
 def frequency(note, octave):
     """http://latecladeescape.com/t/Frecuencia+de+las+notas+musicales"""
@@ -79,8 +80,10 @@ for msec, freq in freql:
 com = com[:-4]
 if args.verbose:
     # add header for user script
+    today = date.today()
     print('#!/bin/bash')
-    print('# Converted to beep by Unraid Beep Music')
+    print("# Converted to beep by Unraid Beep Music on", today)
+    print('# nameoftune')
     # print beep codes
     print(com)
 if not args.silent:
