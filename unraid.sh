@@ -81,7 +81,7 @@ convertnoisy() {
 		
 # Check wav file exists then convert it to beep and play beep file
     if [ -e "$name" ] ; then
-nohup python /beep/wavtobeep.py -w "$time" --verbose "$name" > /config/converted_wavs/"$filenamenoext".sh
+nohup python /beep/wavtobeep.py -w "$time" --verbose "$name" > /config/converted_wavs/temp_"$filenamenoext".sh
 else
 echo "Nothing here to convert. Place a wav or mp3 in the folder file_to_convert in the appdata folder"
 fi
