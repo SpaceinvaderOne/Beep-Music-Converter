@@ -80,9 +80,9 @@ for msec, freq in freql:
 com = com[:-4]
 if args.verbose:
     # add header for user script
-    today = date.today()
+    current_date = date.today()
     print('#!/bin/bash')
-    print("# Converted to beep by Unraid Beep Music on", today)
+    print("# Converted to beep by Unraid Beep Music on :%d-%d-%d" % (current_date.day,current_date.month,current_date.year))
     print('# nameoftune')
     # print beep codes
     print(com)
