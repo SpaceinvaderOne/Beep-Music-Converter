@@ -133,7 +133,7 @@ fi
 
 addname() {
 if grep -q "# nameoftune" /config/converted_wavs/temp_"$filenamenoext".sh; then 
-	sed "s_# nameoftune_# $filenamenoext_" </config/converted_wavs/temp_"$filenamenoext".sh >/config/converted_wavs/"$filenamenoext".sh
+	sed "s/nameoftune/$filenamenoext/" </config/converted_wavs/temp_"$filenamenoext".sh >/config/converted_wavs/"$filenamenoext".sh
 rm /config/converted_wavs/temp_"$filenamenoext".sh
 fi
 }
