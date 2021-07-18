@@ -23,3 +23,4 @@ Silent     choose from  no|yes
 time   default 50   -Time window for frequency analysis (in ms). . Experiment with different values for individual tune to find best           
            
 The folder in this repo called beep_music has a collection of converted beep music files (i will add to this)
+https://github.com/SpaceinvaderOne/Beep-Music-Converter/tree/main/beep_music
