@@ -20,18 +20,19 @@ cd /config/file_to_convert/ || exit
 checkrun() {
     if [ "$custom" == "default" ] ; then
 monowav
-mode="Default convert from folder mode"
+
 
 # play sample Indiana_Jones
 elif [ "$custom" == "Indiana_Jones" ] ; then	
 name="/config/examples/Indiana_Jones.wav"
-mode="Sample Indiana Jones Mode"
+filename="Indiana_Jones.wav"
+filenamenoext=$(echo "$filename" | cut -f 1 -d '.') && echo $filenamenoext
 
 # play sample monkey island
 elif [ "$custom" == "Monkey_Island" ] ; then	
 name="/config/examples/Monkey_Island.wav"
-mode="Sample Monkey Island beep tune mode"
-
+filename="Monkey_Island.wav"
+filenamenoext=$(echo "$filename" | cut -f 1 -d '.') && echo $filenamenoext
 else
 echo "nothing selected"
 
@@ -117,7 +118,7 @@ clean() {
       if [ "$cleanup" == "yes" ] ; then
 #move wav file which has been processed to folder converted_wavs
       rm /config/file_to_convert/"$filename"
-	  chmod 777 -R /config
+	  chmod 777 -R /config/
 	echo ""
 	echo ""
 	echo ""
